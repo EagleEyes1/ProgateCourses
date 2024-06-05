@@ -1,11 +1,18 @@
 import React from "react";
 import TodoItem from "./TodoItem";
 
-const Todos = ({ todos }) => {
+const Todos = ({ todos, toggleCompleted, deleteTodo }) => {
   return (
     <div style={styles.container}>
       {todos.map((todo) => {
-        return <TodoItem key={todo.id} todo={todo} />;
+        return (
+          <TodoItem
+            key={todo.id}
+            todo={todo}
+            toggleCompleted={toggleCompleted}
+            deleteTodo={deleteTodo}
+          />
+        );
       })}
     </div>
   );
@@ -13,7 +20,7 @@ const Todos = ({ todos }) => {
 
 const styles = {
   container: {
-    width: "40%",
+    width: "100%",
     margin: "0 auto",
   },
 };
